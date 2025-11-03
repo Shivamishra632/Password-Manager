@@ -5,19 +5,32 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 dotenv.config()
+const https = require('https');
+const agent = new https.Agent({ minVersion: 'TLSv1.2' });
+// Use this agent in your HTTPS requests
 
 // Connection URL
-const url = 'mongodb+srv://shivanshmishraa224_db_user:yOI7tkkMhzLFiypY@cluster0.abedz2l.mongodb.net/?appName=Cluster0';
-const client = new MongoClient(url);
-
-// Database Name
+const url = process.env.MONGO_URI || 'mongodb+srv://shivanshmishraa224_db_user:yOI7tkkMhzLFiypY@cluster0.abedz2l.mongodb.net/?appName=Cluster0';
 const dbName = 'passOP';
 const app = express()
-const port =  3000
 app.use(bodyParser.json());
+app.use(cors());
+const port = process.env.PORT || 3000
 
-app.use(cors())
-client.connect();
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+async function startserver() { 
+try{   
+const client = new MongoClient(url);
+
+
+await client.connect();
+console.log('✅ Connected to MongoDB Atlas');
+
+
+
+
+
 
 //get all the passwords
 app.get('/', async (req, res) => {
@@ -49,4 +62,11 @@ app.delete('/', async (req, res) => {
 
 app.listen(port, () => {
     console.log(`Example app listening on  http://localhost:${port}`)
-})
+});
+} catch (err) {
+    console.error('❌ Error connecting to MongoDB:', err);
+    process.exit(1);
+  }
+}
+
+startserver();
