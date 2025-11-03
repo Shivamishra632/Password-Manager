@@ -8,7 +8,7 @@ dotenv.config()
 
 
 // Connection URL
-const url = process.env.MONGO_URI || 'mongodb://atlas-sql-69085b34acd4f57a3b2d196d-njelcx.a.query.mongodb.net/passOP?ssl=true&authSource=admin';
+const url = process.env.MONGO_URI || 'mongodb+srv://shivanshmishraa224_db_user:yOI7tkkMhzLFiypY@cluster0.abedz2l.mongodb.net/?appName=Cluster0';
 const dbName = 'passOP';
 const app = express()
 app.use(bodyParser.json());
