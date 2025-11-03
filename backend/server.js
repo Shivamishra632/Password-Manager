@@ -7,7 +7,7 @@ const cors = require('cors');
 dotenv.config()
 
 // Connection URL
-const url = 'mongodb://localhost:27017/';
+const url = 'mongodb+srv://shivanshmishraa224_db_user:yOI7tkkMhzLFiypY@cluster0.abedz2l.mongodb.net/?appName=Cluster0';
 const client = new MongoClient(url);
 
 // Database Name
