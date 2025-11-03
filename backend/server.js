@@ -5,8 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 dotenv.config()
-const https = require('https');
-const agent = new https.Agent({ minVersion: 'TLSv1.2' });
+
 // Use this agent in your HTTPS requests
 
 // Connection URL
@@ -17,7 +16,7 @@ app.use(bodyParser.json());
 app.use(cors());
 const port = process.env.PORT || 3000
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 
 async function startserver() { 
 try{   
