@@ -6,14 +6,7 @@ const cors = require('cors');
 
 dotenv.config()
 
-<<<<<<< HEAD
-// Use this agent in your HTTPS requests
 
-=======
-
-
-
->>>>>>> 3fe6571 (Added .node-version to use Node 20 on Render)
 // Connection URL
 const url = process.env.MONGO_URI || 'mongodb+srv://shivanshmishraa224_db_user:yOI7tkkMhzLFiypY@cluster0.abedz2l.mongodb.net/?appName=Cluster0';
 const dbName = 'passOP';
